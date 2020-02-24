@@ -24,7 +24,7 @@ app.get('/gallery/:id', (req, res) => {
     })
     .catch((error) => {
       console.log(error);
-    });s
+    });
 });
 
 // get gallery bundle
