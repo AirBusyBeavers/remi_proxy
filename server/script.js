@@ -6,9 +6,21 @@ export let options = {
   duration: "30s"
 };
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 //GET Gallery Listings
 export default function() {
-  var random = Math.floor(Math.random() * 10000000);
+  var randomQuery = getRandomInt(0,9);
+  //set popular query to be 80% and less popular to be 20%
+  if (randomQuery < 2) {
+    var random = getRandomInt(0,9999999);
+  } else {
+    var random = getRandomInt(9999800,9999900);
+  }
   let res = http.get(`http://localhost:3004/gallery/${random}`);
   check(res, {
     "status was 200": (r) => r.status == 200,
