@@ -35,11 +35,21 @@ export default function() {
     let res = http.get(`http://localhost:3004/gallery/`);
     check(res, {
       "status was 200": (r) => r.status == 200,
-      "transaction time OK": (r) => r.timings.duration < 3000
+      "transaction time OK": (r) => r.timings.duration < 2000
     });
     sleep(0.001);
   };
 */
+
+//GET page
+export default function() {
+    let res = http.get(`http://localhost:3004/`);
+    check(res, {
+      "status was 200": (r) => r.status == 200,
+      "transaction time OK": (r) => r.timings.duration < 2000
+    });
+    sleep(0.001);
+  };
 
 /*
 // POST
@@ -55,4 +65,4 @@ export default function() {
     });
     sleep(0.001);
   };
-*/
+  */

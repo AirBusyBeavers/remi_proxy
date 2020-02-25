@@ -41,6 +41,7 @@ app.get('/gallery', (req, res) => {
 
 //post gallery listing
 app.post('/gallery', (req, res) => {
+  // axios.post(`http://localhost:3000/gallery`, req.body)
   axios.post(`http://54.193.19.242:3000/gallery`, req.body)
     .then(({ data }) => {
       res.send(data);
@@ -49,7 +50,6 @@ app.post('/gallery', (req, res) => {
       console.log(error);
     });
 })
-
 
 // REVIEW PROXY RESPONSE
 // app.get('/api/:id', (req, res) => {
